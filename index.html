@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Routing DB</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.0/css/fork-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <span class="navbar-brand">Routing DB</span>
+      <div>
+        <form class="form-inline my-2 my-lg-0">
+          <input type="number" class="form-control mr-2" id="asn" placeholder="AS Number">
+
+          <!--<div class="form-group mr-2">
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+              <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+              <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                <div class="input-group-text">
+                  <i class="fa fa-calendar"></i>
+                </div>
+              </div>
+            </div>
+          </div>-->
+
+          <button class="btn btn-primary my-2 mr-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-primary my-2 my-sm-0" type="submit" disabled title="coming soon..." data-toggle="tooltip">Live</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row mt-3" id="alert">
+      <div class="col-12 mt-5">
+        <div class="alert alert-warning" role="alert">
+          Pick a AS Number
+        </div>
+      </div>
+    </div>
+
+    <div class="results" id="results">
+
+      <div class="row mt-3">
+        <div class="col-12">
+          <ul>
+            <li>
+              Probes: <code id="probes">-</code>
+            </li>
+            <li>
+              Traceroutes analyzed
+              <ul>
+                <li>outgoing v4: <code id="tr-out-v4">-</code></li>
+                <li>ingoing v4: <code id="tr-in-v4">-</code></li>
+                <li>outgoing v6: <code id="tr-out-v6">-</code></li>
+                <li>ingoing v6: <code id="tr-in-v6">-</code></li>
+              </ul>
+            </li>
+            <li>
+              IXP Peerings: <code id="ixp">-</code>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row mt-3">
+        <div class="col-12">
+          <div class="status">
+            <i id="icon" class="fa" aria-hidden="true"></i>
+          </div>
+
+
+
+          <table class="table table-stripped" id="interesting">
+            <thead>
+              <h5>
+                <i id="icon" class="fa fa-question-circle text-warning" aria-hidden="true"></i>
+                New Peering suggestions
+              </h5>
+              <tr>
+                <th scope="col">source AS</th>
+                <th scope="col">AS Path</th>
+                <th scope="col">destination AS</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="aspaths-interesting">
+            </tbody>
+          </table>
+
+          <table class="table table-stripped" id="normal">
+            <h5>
+              <i id="icon" class="fa fa-check-circle text-success" aria-hidden="true"></i>
+              Normal
+            </h5>
+            <thead>
+              <tr>
+                <th scope="col">source AS</th>
+                <th scope="col">AS Path</th>
+                <th scope="col">destination AS</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="aspaths-normal">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer text-center">
+    <div class="container">
+      <span class="text-muted">
+        Build at RIPE Dublin Hackathon &bull;
+        <a href="https://github.com/pgigis/routingdb" target="_blank">source code</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
